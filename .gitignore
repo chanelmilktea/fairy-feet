@@ -131,5 +131,5 @@ dmypy.json
 # IDE Settings
 .idea/
 
-app/config
-app/config/
+config
+config/
