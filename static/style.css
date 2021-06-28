@@ -32,6 +32,17 @@ nav {
   padding: 0 0.5rem;
 }
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
 .split {
   height: 100%;
   width: 50%;
@@ -77,3 +88,4 @@ nav {
   width: auto;
   border-radius: 50%;
 }
+

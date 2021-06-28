@@ -2,7 +2,7 @@ import os
 import gspread
 import pandas as pd
 
-AUTH_JSON = 'app/config/gs.json'
+AUTH_JSON = 'config/gs.json'
 SHEET_KEY = os.environ['GS_SHEET_KEY']
 
 class GSheet(object):
@@ -31,13 +31,20 @@ def clean_cols(cols_list):
     return cols_list
 
 
-def main():
+def form_df():
     gc = GSheet(SHEET_KEY, AUTH_JSON)
     form_data = gc.wks('Responses').get_all_records()
-    form_df = pd.Dataframe(form_data)
+    form_df = pd.DataFrame(form_data)
     form_df.columns = clean_cols(form_df.columns.tolist())
-    print(form_df)
+    form_df['shoe_size'].replace({None: 'Normal'})
+    return form_df
 
+def agg_form_df():
+    df = form_df()
+    df2 = df.groupby(['shoe_type','shoe_size', 'shoe_width', 'skate_brand']).agg(['mean', 'median'])
+    return df2
 
-if __name__ == "__main__":
-    main()
+def get_recs(gender, size, width):
+    print(gender, size, width)
+    df = agg_form_df()
+    return df.loc[(gender, size, width), :]

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Fairy Feet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" type="image/jpg" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/samsung/265/woman-fairy_1f9da-200d-2640-fe0f.png"/>
+</head>
+<body>
+<div class="split left">
+    <div class="centered-left">
+        <h1>Project Fairy Feet 🧚‍♀️</h1>
+        <h2>Taking the guesswork out of your skates purchase.</h2>
+        <br><br>
+            <a href="/contribute">Contribute</a> |  <a href="/">Find your skate size</a>
+        <br><br><br><br>
+        <div>
+        <a href="https://www.instagram.com/chanelmilktea/">
+            <img src="static/icon_watercolor.png"
+                 alt="instagram icon"
+                 width="auto"
+                 height="50">
+        </a>
+        <br>
+        <a href="https://www.instagram.com/chanelmilktea/">
+            Follow me on Instagram for more updates!
+        </a>
+        </div>
+    </div>
+</div>
+
+<div class="split right">
+    <div class="centered-right">
+    <h2>Results</h2>
+    <br>
+    <div>
+        {{results_table | safe}}
+    </div>
+
+</form>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
