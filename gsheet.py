@@ -2,7 +2,7 @@ import os
 import gspread
 import pandas as pd
 
-AUTH_JSON = 'config/gs.json'
+AUTH_JSON = os.environ['GS_JSON']
 SHEET_KEY = os.environ['GS_SHEET_KEY']
 
 class GSheet(object):
