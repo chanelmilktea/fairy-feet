@@ -1,8 +1,9 @@
 import os
+import json
 import gspread
 import pandas as pd
 
-AUTH_JSON = os.environ['GS_JSON']
+AUTH_JSON = json.loads(os.environ['GS_JSON'])
 SHEET_KEY = os.environ['GS_SHEET_KEY']
 
 class GSheet(object):
@@ -12,7 +13,7 @@ class GSheet(object):
         self.sheet = self.sheet()
 
     def sheet(self):
-        gc = gspread.service_account(filename=self.auth_json)
+        gc = gspread.service_account_from_dict(self.auth_json)
         return gc.open_by_key(self.sheet_key)
 
     def wks(self, wks_name):
